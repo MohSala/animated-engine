@@ -1,8 +1,9 @@
 package models;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Card {
+public class Card implements Serializable {
     public long getCardNo() {
         return cardNo;
     }

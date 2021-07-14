@@ -1,8 +1,9 @@
 package models;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Transaction {
+public class Transaction implements Serializable {
     private Wallet sender;
     private Wallet receiver;
     private LocalDateTime transactionDate;
