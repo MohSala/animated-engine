@@ -47,9 +47,9 @@ public class Serialize {
         Transaction t7 = new Transaction(2.5F, w5,w7, LocalDateTime.of(2020, 01, 01, 02, 38), w7.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t8 = new Transaction(10.3F, w1,w2, LocalDateTime.of(2020, 01, 01, 02, 38), w2.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t9 = new Transaction(50, w3,w4, LocalDateTime.of(2020, 02, 01, 02, 38), w4.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
-        Transaction t10 = new Transaction(500, w5,w6, LocalDateTime.of(2020, 03, 01, 02, 38), w6.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
-        Transaction t11 = new Transaction(50, w7,w8, LocalDateTime.of(2020, 03, 01, 02, 38),w8.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
-        Transaction t12 = new Transaction(200, w8,w7, LocalDateTime.of(2020, 03, 01, 02, 38), w7.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
+        Transaction t10 = new Transaction(500, w5,w6, LocalDateTime.of(2020, 3, 01, 02, 38), w6.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
+        Transaction t11 = new Transaction(50, w7,w8, LocalDateTime.of(2020, 3, 01, 02, 38),w8.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
+        Transaction t12 = new Transaction(200, w8,w7, LocalDateTime.of(2020, 3, 01, 02, 38), w7.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t13 = new Transaction(200, w7,w6,  LocalDateTime.of(2020, 04, 01, 02, 38), w6.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t14 = new Transaction(1500, w6,w5,  LocalDateTime.of(2020, 05, 01, 02, 38), w5.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t15 = new Transaction(150, w5,w4, LocalDateTime.of(2020, 06, 01, 02, 38), w4.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
