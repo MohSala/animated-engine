@@ -1,4 +1,4 @@
-package business;
+package modes;
 
 public enum Status {
     SUCCESSFUL,

@@ -1,4 +1,4 @@
-package business;
+package modes;
 
 import java.util.Arrays;
 import java.util.List;
