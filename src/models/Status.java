@@ -1,4 +1,4 @@
-package modes;
+package models;
 
 public enum Status {
     SUCCESSFUL,
