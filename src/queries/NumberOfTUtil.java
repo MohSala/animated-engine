@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> serialize
 package queries;
 
 
@@ -38,10 +41,5 @@ public interface NumberOfTUtil {
             .map(Customer::getFirstName)
                     .distinct()
             .collect(Collectors.toList());
-
-
-
-
-
 
 }
