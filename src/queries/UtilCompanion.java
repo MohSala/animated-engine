@@ -15,18 +15,11 @@ public class UtilCompanion {
         return res;
     }
 
-    public static List<Wallet> customerWalletsList(Customer c){
-        List<Wallet> wallets = c.getCustomerWallet();
-        return wallets;
-    }
-
     public static Boolean monthlyTransactions(Transaction t, int tYear, int tMonth){
         return compareDates(t.getTransactionDate(), LocalDate.of(tYear, tMonth, 1)) == 0;
     }
     public static String fullName(Customer cn){
         return cn.getFirstName() + " " + cn.getLastName();
     }
-
-
 
 }
