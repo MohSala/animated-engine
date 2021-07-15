@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> serialize
 package queries;
 
 
