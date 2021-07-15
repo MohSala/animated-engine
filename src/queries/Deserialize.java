@@ -2,17 +2,13 @@ package queries;
 
 import models.Customer;
 import models.Transaction;
-import models.Wallet;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Deserialize {
     static Long numberofTimes(List<Transaction> t, Integer a, Integer b) {

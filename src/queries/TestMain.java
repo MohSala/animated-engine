@@ -1,9 +1,7 @@
 package queries;
 
-import dataaccess.MockData;
 import models.*;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -12,7 +10,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class TestMain {
     public static void main(String[] args) {
@@ -46,10 +43,10 @@ public class TestMain {
         Transaction t6 = new Transaction(2, w6,w2, LocalDateTime.of(2019, 12, 01, 02, 38), w2.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t7 = new Transaction(2.5F, w5,w7, LocalDateTime.of(2020, 01, 01, 02, 38), w7.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t8 = new Transaction(10.3F, w1,w2, LocalDateTime.of(2020, 03, 01, 0, 0), w2.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
-        Transaction t9 = new Transaction(50, w3,w4, LocalDateTime.of(2020, 03, 01, 0, 0), w4.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
-        Transaction t10 = new Transaction(500, w5,w6, LocalDateTime.of(2020, 03, 01, 0, 0), w6.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
+        Transaction t9 = new Transaction(50, w3,w4, LocalDateTime.of(2020, 03, 01, 1, 40), w4.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
+        Transaction t10 = new Transaction(500, w5,w6, LocalDateTime.of(2020, 03, 01, 9, 38), w6.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t11 = new Transaction(50, w7,w8, LocalDateTime.of(2020, 03, 01, 02, 38),w8.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
-        Transaction t12 = new Transaction(200, w8,w7, LocalDateTime.of(2020, 03, 01, 0, 0), w7.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
+        Transaction t12 = new Transaction(200, w8,w7, LocalDateTime.of(2020, 03, 01, 02, 38), w7.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t13 = new Transaction(200, w7,w6,  LocalDateTime.of(2020, 04, 01, 02, 38), w6.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t14 = new Transaction(1500, w6,w5,  LocalDateTime.of(2020, 05, 01, 02, 38), w5.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t15 = new Transaction(150, w5,w4, LocalDateTime.of(2020, 06, 01, 02, 38), w4.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
