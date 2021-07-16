@@ -149,7 +149,7 @@ public class Serialize {
 
         try {
             FileOutputStream fileOut =
-                    new FileOutputStream("/tmp/customer.ser");
+                    new FileOutputStream(System.getProperty("user.dir") + "/src/tmp/customer.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(customers);
             out.writeObject(transactions);

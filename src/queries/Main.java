@@ -41,7 +41,7 @@ public class Main {
         List<Transaction> transactions = new ArrayList<>();
 
         try {
-            FileInputStream fileIn = new FileInputStream("/tmp/customer.ser");
+            FileInputStream fileIn = new FileInputStream(System.getProperty("user.dir") + "/src/tmp/customer.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             cust = (ArrayList) in.readObject();
             transactions = (List<Transaction>) in.readObject();
