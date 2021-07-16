@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -48,6 +49,13 @@ public class FunctionUtilTest {
     public void testGetCustomerListWith1kTransaction(){
 
         long expected = TransactionUtil.getCustomerCountWith1kTransaction.apply(MockData.customerList(), 1000D);
+        Assert.assertTrue(expected > 0);
+    }
+
+    @Test
+    public void testGetNumberOfTransactionWithinAPeriod(){
+
+        long expected = NumberofTransacionUtil.getNumberOfTransactionWithinAPeriod.apply(MockData.TransactionList(), LocalDateTime.now());
         Assert.assertTrue(expected > 0);
     }
 }

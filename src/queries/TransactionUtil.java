@@ -17,7 +17,6 @@ public interface TransactionUtil {
                     .flatMap(wal -> wal.getTransactions().stream())
                     .map(x -> (Transaction)x)
                     .filter(wal -> wal.getStatus() == Status.SUCCESSFUL && wal.getAmount() > amt)
-
                     .count();
 
 
