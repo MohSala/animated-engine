@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Main {
     static Long numberofTimes(List<Transaction> t, Integer a, Integer b) {
@@ -33,9 +34,10 @@ public class Main {
         return DormantUtil.dormantCustomers.apply(cus);
     }
 
-//    static Map cusList(List<Transaction> t) {
-//        return NumberOfTUtil.cusListOfT.apply(t);
-//    }
+    static List<String> cusList(List<Customer> c) {
+        return MostActiveUtil.mostActiveUser.apply(c);
+    }
+
     public static void main(String[] args) {
         ArrayList<Customer> cust = new ArrayList<>();
         List<Transaction> transactions = new ArrayList<>();

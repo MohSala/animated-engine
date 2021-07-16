@@ -3,6 +3,7 @@ package queries;
 import models.Customer;
 import models.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -13,14 +14,13 @@ import java.time.temporal.ChronoUnit;
 import java.util.stream.Collectors;
 
 public interface DormantUtil {
-        Function<List<Customer>, Optional<Map.Entry<Integer, List<Transaction>>>> userWithLongestDurationOfInactivity = customers ->
-                customers.stream()
-                .flatMap(customer -> customer.getCustomerWallet().stream())
-                .flatMap(wallet -> wallet.getTransactions().stream())
-                .collect( Collectors.groupingBy(transaction ->
-                        (int)  ChronoUnit.HOURS.between(transaction.getTransactionDate(), LocalDateTime.now())))
-                .entrySet().stream()
-                .findFirst();
+        Function<List<Customer>, List<Map.Entry<Integer, List<Transaction>>>> userWithLongestDurationOfInactivity = customers ->
+                new ArrayList<>(customers.stream()
+                        .flatMap(customer -> customer.getCustomerWallet().stream())
+                        .flatMap(wallet -> wallet.getTransactions().stream())
+                        .collect(Collectors.groupingBy(transaction ->
+                                (int) ChronoUnit.HOURS.between(transaction.getTransactionDate(), LocalDateTime.now())))
+                        .entrySet());
 
         Function<List<Customer>, List<String>> dormantCustomers = customers ->
                 userWithLongestDurationOfInactivity.apply(customers)
