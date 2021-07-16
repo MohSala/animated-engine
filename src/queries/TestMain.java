@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Serialize {
+public class TestMain {
     public static void main(String[] args) {
         Customer c1 = new Customer("John", "Bull", "bull@gmail.com", 2002, 12345);
         Customer c2 = new Customer("Esther", "Mukungu", "esther@gmail.com", 2002, 54342);
@@ -42,11 +42,11 @@ public class Serialize {
         Transaction t5 = new Transaction(35, w5,w1, LocalDateTime.of(2019, 11, 01, 02, 38), w1.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t6 = new Transaction(2, w6,w2, LocalDateTime.of(2019, 12, 01, 02, 38), w2.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t7 = new Transaction(2.5F, w5,w7, LocalDateTime.of(2020, 01, 01, 02, 38), w7.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
-        Transaction t8 = new Transaction(10.3F, w1,w2, LocalDateTime.of(2020, 01, 01, 02, 38), w2.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
-        Transaction t9 = new Transaction(50, w3,w4, LocalDateTime.of(2020, 02, 01, 02, 38), w4.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
-        Transaction t10 = new Transaction(500, w5,w6, LocalDateTime.of(2020, 3, 01, 02, 38), w6.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
-        Transaction t11 = new Transaction(50, w7,w8, LocalDateTime.of(2020, 3, 01, 02, 38),w8.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
-        Transaction t12 = new Transaction(200, w8,w7, LocalDateTime.of(2020, 3, 01, 02, 38), w7.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
+        Transaction t8 = new Transaction(10.3F, w1,w2, LocalDateTime.of(2020, 03, 01, 0, 0), w2.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
+        Transaction t9 = new Transaction(50, w3,w4, LocalDateTime.of(2020, 03, 01, 1, 40), w4.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
+        Transaction t10 = new Transaction(500, w5,w6, LocalDateTime.of(2020, 03, 01, 9, 38), w6.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
+        Transaction t11 = new Transaction(50, w7,w8, LocalDateTime.of(2020, 03, 01, 02, 38),w8.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
+        Transaction t12 = new Transaction(200, w8,w7, LocalDateTime.of(2020, 03, 01, 02, 38), w7.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t13 = new Transaction(200, w7,w6,  LocalDateTime.of(2020, 04, 01, 02, 38), w6.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t14 = new Transaction(1500, w6,w5,  LocalDateTime.of(2020, 05, 01, 02, 38), w5.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
         Transaction t15 = new Transaction(150, w5,w4, LocalDateTime.of(2020, 06, 01, 02, 38), w4.getCustomer().getCustomerTag(), Status.SUCCESSFUL);
@@ -143,15 +143,14 @@ public class Serialize {
         List<Transaction> transactions = Arrays.asList(
                 t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20,t21,t22,t23,t24,t25
         );
-
+        //System.getProperty("user.dir")
+        //			+ "\\src\\dataaccess\\storage";
         try {
             FileOutputStream fileOut =
-                    new FileOutputStream("/tmp/customer.ser");
+                    new FileOutputStream(System.getProperty("user.dir") + "/src/tmp/customer.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(customers);
             out.writeObject(transactions);
-//            out.writeObject(walletList());
-//            out.writeObject(cardList());
             out.close();
             fileOut.close();
             System.out.printf("Serialized data is saved in /tmp/customer.ser");

@@ -1,14 +1,25 @@
 package queries;
+import models.Customer;
+import models.Transaction;
+import models.Wallet;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
 import java.time.YearMonth;
+import java.util.List;
+
 public class UtilCompanion {
-    //need a date comparator
-    public static int compareDates(LocalDateTime d1, LocalDateTime d2) {
-        LocalDate date1 = d1.toLocalDate();
-        LocalDate date2 = d1.toLocalDate();
-        int res = YearMonth.from(date1).compareTo(YearMonth.from(date2));
+
+    public static int compareDates(LocalDateTime d1, LocalDate d2) {
+        int res = YearMonth.from(d1).compareTo(YearMonth.from(d2));
         return res;
     }
+
+    public static Boolean monthlyTransactions(Transaction t, int tYear, int tMonth){
+        return compareDates(t.getTransactionDate(), LocalDate.of(tYear, tMonth, 1)) == 0;
+    }
+    public static String fullName(Customer cn){
+        return cn.getFirstName() + " " + cn.getLastName();
+    }
+
 }

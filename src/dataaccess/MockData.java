@@ -3,14 +3,19 @@ package dataaccess;
 
 import models.*;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class MockData {
 
-    public static List<Customer> customerList(){
+    public static ArrayList<Customer> customerList(){
         Customer c1 = new Customer("John", "Bull", "bull@gmail.com", 2002, 2002);
         Customer c2 = new Customer("Esther", "Mukungu", "esther@gmail.com", 2002, 2002);
         Customer c3 = new Customer( "Joe", "Biden", "biden@gmail.com", 2002, 2002);
@@ -20,7 +25,8 @@ public class MockData {
         Customer c7 = new Customer( "Stone", "Cold", "cold@gmail.com", 2002, 2002);
         Customer c8 = new Customer( "Hulk", "Hogan", "hogan@gmail.com", 2002, 2002);
         Customer c9 = new Customer( "Bubu", "Harry", "harry@gmail.com", 2002,2002);
-        c1.setCards(Arrays.asList(cardList().get(0))); c1.setCustomerWallet(Arrays.asList(walletList().get(0), walletList().get(1)));
+        c1.setCards(Arrays.asList(cardList().get(0)));
+        c1.setCustomerWallet(Arrays.asList(walletList().get(0), walletList().get(1)));
         c2.setCards(Arrays.asList(cardList().get(1))); c2.setCustomerWallet(Arrays.asList(walletList().get(2), walletList().get(3)));
         c3.setCards(Arrays.asList(cardList().get(2))); c3.setCustomerWallet(Arrays.asList(walletList().get(5), walletList().get(6)));
         c4.setCards(Arrays.asList(cardList().get(3))); c4.setCustomerWallet(Arrays.asList(walletList().get(7), (walletList().get(4))));
@@ -29,9 +35,18 @@ public class MockData {
         c7.setCards(Arrays.asList(cardList().get(6))); c7.setCustomerWallet(Arrays.asList(walletList().get(10)));
         c8.setCards(Arrays.asList(cardList().get(7))); c8.setCustomerWallet(Arrays.asList(walletList().get(11)));
         c9.setCards(Arrays.asList(cardList().get(8))); c9.setCustomerWallet(Arrays.asList(walletList().get(12)));
-        List<Customer> customers = Arrays.asList(
-                c1, c2,c3,c4,c5,c6,c7,c8,c9
-        );
+        ArrayList<Customer> customers = new ArrayList<>();
+        customers.add(c1);
+        customers.add(c2);
+        customers.add(c3);
+        customers.add(c4);
+        customers.add(c5);
+        customers.add(c6);
+        customers.add(c7);
+        customers.add(c8);
+        customers.add(c9);
+
+
 
         return customers;
     }

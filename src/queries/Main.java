@@ -1,14 +1,11 @@
 package queries;
 
-import dataaccess.Deserialize;
 import models.Customer;
 import models.Transaction;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,12 +20,6 @@ public class Main {
         return NumberOfTUtil.customersWithTransactions.apply(customers);
     }
 
-    static long ratio(List<Customer> customers, int year, int month){
-        long res = ActivityUtil.getNoOfActiveCustomers.apply(customers, year, month)
-                /ActivityUtil.getNoOfAllCustomers.apply(customers);
-        return res;
-    }
-
     static List<String> dormantAccts(List<Customer> cus) {
         return DormantUtil.dormantCustomers.apply(cus);
     }
@@ -41,7 +32,7 @@ public class Main {
         List<Transaction> transactions = new ArrayList<>();
 
         try {
-            FileInputStream fileIn = new FileInputStream("/tmp/customer.ser");
+            FileInputStream fileIn = new FileInputStream(System.getProperty("user.dir") + "/src/tmp/customer.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             cust = (ArrayList) in.readObject();
             transactions = (List<Transaction>) in.readObject();
@@ -60,9 +51,14 @@ public class Main {
 //        Integer a = cust.get(0).getCustomerTag();
 //        Integer b = cust.get(0).getCustomerTag();
 //        Long r = numberofTimes(t,a,  b);
-//          Long res = ratio(cust, 2020,3);
-//        System.out.println(res);
-        List<String> res = dormantAccts(cust);
+//          long res = ratio(cust, 2020,03);
+        int res = ActivityUtil.percentageOfActiveCustomersPerMonth(cust, 2019, 10);
+        List<String> result = DailyMultipleTransaction.cWithDailyMultipleTransactions(cust);
+        String ar = TransactionRange.range(cust);
+
+        System.out.println(ar);
+//        List<String> res = dormantAccts(cust);
         System.out.println(res);
+        System.out.println(result);
     }
 }
